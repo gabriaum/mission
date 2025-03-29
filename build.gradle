@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id('net.minecrell.plugin-yml.bukkit') version '0.6.0'
+}
+
+group = 'com.gabriaum.mission'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def localDirectory = 'C://API/'
+def lombok = 'org.projectlombok:lombok:1.18.32'
+
+dependencies {
+
+    compileOnly(lombok)
+    annotationProcessor(lombok)
+
+    compileOnly files(localDirectory + 'yunity.jar')
+}
+
+bukkit {
+    main = "com.gabriaum.mission.MissionMain"
+    name = "gMission"
+    version = "1.0-SNAPSHOT"
+    author = "gabriaum"
+    commands {
+
+        mission {
+            description = "Comando para missões"
+            aliases = ["missao"]
+        }
+
+        party {
+            description = "Comando para partys"
+        }
+    }
+}
